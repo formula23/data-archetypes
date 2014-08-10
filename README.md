@@ -4,6 +4,6 @@
 >To achieve this, we need standard formats for common types of data.  If data does not change shape, it's easier for developers to build applications that work with it, plus it's easier for users to adopt those applications, and increase productivity of their data.
 
 
-####These JSON Schemas are standard formats for popular types of data.
+####Standard formats for common types of data in JSON Schemas
 
 ** Servant (http://servant.co) hosts these Data Archetypes in the cloud on the behalf of users and splits its hosting revenue with developers who build applciations that accept them.
