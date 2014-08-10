@@ -6,4 +6,4 @@
 
 ####Standards for common types of data formatted in JSON Schemas
 
-** Servant (http://servant.co) hosts these Data Archetypes in the cloud on the behalf of users and splits its hosting revenue with developers who build applciations that accept them.
+** Servant (http://servant.co) hosts these Data Archetypes in the cloud on behalf of users and splits its hosting revenue with developers who build applications that use with these Data Archetypes.
