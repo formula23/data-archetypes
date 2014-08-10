@@ -7,7 +7,7 @@
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format.  Data Archetypes focus on containing only the essential properties/attributes that define and differentiate a type of data.
 
-Please contribute!
+Feel free to contribute!
 
 ##F.A.Q.
 ###As a Developer, how can I store extra data in each Archetype (e.g. SEO data)?
