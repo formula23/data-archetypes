@@ -7,7 +7,7 @@
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format.  Data Archetypes focus on containing only the essential properties/attributes that define and differentiate types of data.
 
-This project was started for [Servant - The Content Management Ecosystem](http://servant.co), which allows Users to host Data Archetypes in the cloud and import them into applications that work with them.  Servant also splits the hosting revenue of its users with applications that integrate with it.  Hosting user data separate from applications that use it, and keeping that data in standard formats are important steps toward a more liquid web :)
+This project was started for [Servant - The Content Management Ecosystem](http://servant.co), which allows Users to host Data Archetypes in the cloud and import them into applications that work with the Archetypes.  Servant also splits the hosting revenue of its users with every applications that integrates with it.  Hosting user data separate from applications that use it, and keeping that data in standard formats are major steps toward a more liquid web :)
 
 Feel free to contribute to the Data Archetypes!
 
