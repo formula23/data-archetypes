@@ -7,10 +7,14 @@
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format.  Data Archetypes focus on containing only the essential properties/attributes that define and differentiate types of data.
 
-This project was started for [Servant - The Content Management Ecosystem](http://servant.co), which allows Users to host Data Archetypes in the cloud and import them into applications that work with the Archetypes.  Servant also splits the hosting revenue of its users with every applications that integrates with it.  Hosting user data separate from applications that use it, and keeping that data in standard formats are major steps toward a more liquid web :)
+This project was started for [Servant - The Content Management Ecosystem](http://servant.co), and represents half of Servant's strategy for building a more liquid web.  The strategy looks like this:
 
-Feel free to contribute to the Data Archetypes!
+>**• Host User Data Separate From Applications That Use It:**  This is what [Servant](http://servant.co) does.  It's cloud hosting for User's data.
+>**• Keep User Data In Standard Formats:**  This is what Data Archetypes are, standard formats.
 
+The benefits of this strategy are numerous. Check out Servant if you get a chance.  Servant also splits the hosting revenue of its users with every application that integrates with Servant.  
+
+That said, feel free to contribute to the Data Archetypes!
 ##F.A.Q.
 ###As a Developer, how can I store extra data in each Archetype (e.g. SEO data)?
 95% of the time, developers want to add extra data/properties to the Archetypes which are only relevant to their particular applications.  However, the Data Archetypes must be kept lean and comprehensible for the sake of speed and ease-of-use in all scenarios.  For instance, what use would a mobile application have for SEO data if SEO data is stored in each Archetype?
@@ -28,5 +32,3 @@ Data Archetypes aren't going to be perfect for everyone.  But don't let the perf
 
 
 
-
-** Servant (http://servant.co) hosts these Data Archetypes in the cloud on behalf of users and splits its hosting revenue with developers who build applications that use Data Archetypes.
