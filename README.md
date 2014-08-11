@@ -9,7 +9,7 @@ Given the popularity of JSON, each Data Archetype has been modeled in [JSON Sche
 
 This project was started for [Servant - The Content Management Ecosystem](http://servant.co), and represents half of Servant's strategy for building a more liquid web.  The strategy looks like this:
 
->**• Host User Data Separate From Applications That Use It:**  This is what [Servant](http://servant.co) does.  It's cloud hosting for User's data.
+>**• Host User Data Separate From Applications That Use It:**  This is what [Servant](http://servant.co) does.  It's cloud hosting for User's data.  
 >**• Keep User Data In Standard Formats:**  This is what Data Archetypes are, standard formats.
 
 The benefits of this strategy are numerous. Check out Servant if you get a chance.  Servant also splits the hosting revenue of its users with every application that integrates with Servant.  
