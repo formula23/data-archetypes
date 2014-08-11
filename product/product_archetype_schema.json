@@ -11,24 +11,29 @@
 		},
 		"title": {
 			"type": "string",
-			"description": "The name of the product"
+			"description": "The name of the product",
+			"maxLength": 140
 		},
 		"price": {
-			"type": "number",
+			"type": "integer",
+			"description": "Product price in cents as an integer (whole number)",
 			"minimum": 0,
 			"default": 0
 		},
 		"seller": {
 			"type": "string",
-			"description": "The person or organization selling the product"
+			"description": "The person or organization selling the product",
+			"maxLength": 70
 		},
 		"category": {
 			"type": "string",
-			"description": "General category of the product, e.g. Clothing"
+			"description": "General category of the product, e.g. Clothing",
+			"maxLength": 40
 		},
 		"subcategory": {
 			"type": "string",
-			"description": "Specific category of the product, e.g. Jeans"
+			"description": "Specific category of the product, e.g. Jeans",
+			"maxLength": 40
 		},
 		"condition": {
 			"enum": ["new", "refurbished", "used - like new", "used - very good", "used - good", "used - acceptable"],
@@ -71,6 +76,7 @@
 			"description": "Variations of this product that can be ordered for the same price, e.g. Color.",
 			"uniqueItems": true,
 			"additionalItems": false,
+			"maxItems": 15,
 			"items": {
 				"type": "object",
 				"additionalProperties": false,
@@ -105,7 +111,8 @@
 		},
 		"brand": {
 			"type": "string",
-			"description": "Brand of the product"
+			"description": "Brand of the product",
+			"maxLength": 40
 		},
 		"model": {
 			"type": "string",
@@ -131,8 +138,8 @@
 			"default": false
 		},
 		"sale_price": {
-			"type": "number",
-			"description": "If the product is on sale, this is the sale price",
+			"type": "integer",
+			"description": "Product price in cents as an integer (whole number)",
 			"minimum": 0,
 			"default": 0
 		},
@@ -144,12 +151,12 @@
 		"sku": {
 			"type": "string",
 			"description": "The Stock Keeping Unit of the product",
-			"format": "SKU"
+			"maxLength": 50
 		},
 		"upc": {
 			"type": "string",
 			"description": "The Universal Product Code of the product",
-			"format": "UPC"
+			"maxLength": 50
 		},
 		"shipping_prices:": {
 			"type": "array",
@@ -165,8 +172,8 @@
 						"description": "Name of the geographic jurisdiction which the product can be shipped to"
 					},
 					"price": {
-						"type": "number",
-						"description": "The price of shipping to the corresponding place",
+						"type": "integer",
+						"description": "The price of shipping to the corresponding place in cents as an integer (whole number)",
 						"minimum": 0,
 						"default": 0
 					}
