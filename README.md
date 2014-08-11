@@ -3,13 +3,13 @@
 ###Open-source JSON standards for common types of data.
   
 >**Data should be able to flow fast and freely between multiple applications...**  
->To achieve this, we need standard formats for common types of data.  If data does not change shape, it's easier for developers to build applications that work with it, and users can import pre-existing data into those applications, increasing productivity of their data.
+>To achieve this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing productivity of their data.
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format.  Data Archetypes focus on containing only the essential properties/attributes that define and differentiate types of data.
 
-This project was started for [Servant - The Content Management Ecosystem](http://servant.co), which allows Users to host Data Archetypes in the cloud and import them into applications that work with them.  Servant also splits the hosting revenue of its users with applications that integrate with it.
+This project was started for [Servant - The Content Management Ecosystem](http://servant.co), which allows Users to host Data Archetypes in the cloud and import them into applications that work with them.  Servant also splits the hosting revenue of its users with applications that integrate with it.  Hosting user data separate from applications that use it, and keeping that data in standard formats are important steps toward a more liquid web :)
 
-Feel free to contribute to the Data Archetypes.  Together we can create a more liquid web :)
+Feel free to contribute to the Data Archetypes!
 
 ##F.A.Q.
 ###As a Developer, how can I store extra data in each Archetype (e.g. SEO data)?
