@@ -4,12 +4,12 @@
 
 ##Mission
   
-**Data should be able to flow fast and freely between multiple applications...**  
+####Data should be able to flow fast and freely between multiple applications... 
 To achieve this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing distribution and productivity of their data.
 
 ##Overview
 
-***STATUS: This is currently a work in progress.  We are waiting to recieve feedback on these before launching version 1 and Servant***
+***STATUS: This is currently a work in progress.  We are waiting to recieve feedback on these before launching Data Archetypes Version 1 and Servant***
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format and can be found in the `archetypes` folder.  Data Archetypes focus on are meant to be lean and contain only the essential properties/attributes that define and differentiate types of data.  The challenge is to agree on what those properties/attributes are...
 
@@ -27,7 +27,7 @@ Given the popularity of JSON, each Data Archetype has been modeled in [JSON Sche
 
 ---
 
-This project was started for [Servant - The Content Management Ecosystem](http://servant.co), and represents half of Servant's strategy for building a more liquid web.  The strategy looks like this:
+This project was started to be used in SDKs for [Servant - The Content Management Ecosystem](http://servant.co), and represents half of Servant's strategy for building a more liquid web.  The strategy looks like this:
 
 >**• Host User Data Separate From Applications That Use It:**  This is what [Servant](http://servant.co) does.  It's cloud hosting for User's data.  
 >**• Keep User Data In Standard Formats:**  This is what Data Archetypes are, standard formats.
