@@ -2,7 +2,8 @@
  *  Data Archetypes – JSON standards for common types of data
  */
 
-var productValidator = require('./product/product_archetype_validator');
+var productValidator = require('.archetypes/product/product_archetype_validator');
+var productInstance = require('.archetypes/product/product_archetype_instance');
 
 // Constructor
 function DataArchetypes() {
@@ -13,6 +14,10 @@ function DataArchetypes() {
 };
 
 // Add Methods
+DataArchetypes.prototype.newProduct = function() {
+	return productInstance;
+};
+
 DataArchetypes.prototype.validateProduct = function(product, callback) {
 	productValidator.validate(product, callback, function(errors, product) {
 		callback(errors, product);

@@ -3,12 +3,8 @@
 	"title": "Receipt Schema",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["id", "product_id", "transaction_date", "amount"],
+	"required": ["product_id", "transaction_date", "amount"],
 	"properties": {
-		"id": {
-			"description": "The unique identifier for a receipt",
-			"type": "string"
-		},
 		"product_id": {
 			"description": "The unique identifier of the product which was purchased",
 			"type": "string"

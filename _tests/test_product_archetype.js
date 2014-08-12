@@ -21,6 +21,20 @@ module.exports.run = function(callback) {
 	});
 
 	/**
+	 * Product Instance Test
+	 */
+	test('------ Test Product Instance', function(t) {
+
+		var instance = DATs.newProduct();
+
+		DATs.validateProduct(instance, function(errors, product) {
+			t.equal(errors, null);
+			t.end();
+		});
+	});
+
+
+	/**
 	 * Product Validator Tests
 	 */
 
@@ -58,8 +72,6 @@ module.exports.run = function(callback) {
 			subcategory: 2134908124,
 			condition: 123123,
 			description: 1242,
-			images: 'asfasf',
-			variations: 'asfasf',
 			tags: 'asfasf',
 			audience: 'asfasf',
 			brand: 234214,
@@ -83,8 +95,6 @@ module.exports.run = function(callback) {
 			t.equal(typeof errors.subcategory !== 'undefined', true);
 			t.equal(typeof errors.condition !== 'undefined', true);
 			t.equal(typeof errors.description !== 'undefined', true);
-			t.equal(typeof errors.images !== 'undefined', true);
-			t.equal(typeof errors.variations !== 'undefined', true);
 			t.equal(typeof errors.tags !== 'undefined', true);
 			t.equal(typeof errors.audience !== 'undefined', true);
 			t.equal(typeof errors.brand !== 'undefined', true);

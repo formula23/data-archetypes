@@ -67,12 +67,16 @@ exports.validate = function(product, callback) {
             errors.audience = 'Audience tags must be an array';
         } else if (product.audience.length > 4) {
             errors.audience = 'Only 4 audience tags are allowed';
-        } else if (!Utils.isString(product.audience[0]) || !Utils.isString(product.audience[1]) || !Utils.isString(product.audience[2]) || !Utils.isString(product.audience[3])) {
-            errors.audience = 'Audience tags must be strings';
-        } else if (product.audience[0].length > 30 || product.audience[1].length > 30 || product.audience[2].length > 30 || product.audience[3].length > 30) {
-            errors.audience = 'Audience tags cannot be longer than 30 characters';
-        } else if (/^[a-zA-Z0-9-]+$/.test(product.audience[0]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[1]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[2]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[3]) === false) {
-            errors.audience = 'Audience tags can have only letters, numbers and dashes';
+        } else if (product.audience.length && product.audience.length <= 4) {
+            if (!Utils.isString(product.audience[0]) || !Utils.isString(product.audience[1]) || !Utils.isString(product.audience[2]) || !Utils.isString(product.audience[3])) {
+                errors.audience = 'Audience tags must be strings';
+            } else if (product.audience[0].length > 30 || product.audience[1].length > 30 || product.audience[2].length > 30 || product.audience[3].length > 30) {
+                errors.audience = 'Audience tags cannot be longer than 30 characters';
+            } else if (/^[a-zA-Z0-9-]+$/.test(product.audience[0]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[1]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[2]) === false || /^[a-zA-Z0-9-]+$/.test(product.audience[3]) === false) {
+                errors.audience = 'Audience tags can have only letters, numbers and dashes';
+            }
+            // Sanitize - Strip out duplicates
+            product.audience = Utils.uniq(product.audience);
         }
     }
 
@@ -151,30 +155,36 @@ exports.validate = function(product, callback) {
     }
 
     /**
+     *
+     * 
      * images
-     * NOTE:  SERVANT has separate API routes for controling product images and does not use the following code
+     * 
+     *  NOTE:  SERVANT has separate API routes for handling product images and does not use the following code
+     *
+     * 
      */
-    if (Utils.whatIs(product.images) !== 'undefined') {
-        if (!Utils.isArray(product.images)) {
-            errors.images = "Images must be an array";
-        } else if (product.images.length > 15) {
-            errors.images = "Products cannot have more than 15 images";
-        } else {
-            var i = 0;
-            while (i <= product.images.length || !errors.images) {
-                if (Utils.whatIs(product.image[i].original) === 'undefined' || Utils.whatIs(product.image[i].large) === 'undefined' || Utils.whatIs(product.image[i].medium) === 'undefined' || Utils.whatIs(product.image[i].small) === 'undefined') {
-                    // Check to see if resolutions are present
-                    errors.images = 'Missing image resolution.  Images must contain original, large, medium and small resolutions';
-                } else if (Utils.whatIs(product.image[i].original) !== 'string' || Utils.whatIs(product.image[i].large) !== 'string' || Utils.whatIs(product.image[i].medium) !== 'string' || Utils.whatIs(product.image[i].small) !== 'string') {
-                    // Check to see if resolutions are all strings
-                    errors.images = 'Image resolutions must all be strings';
-                } else if (Utils.isAbsoluteUri(product.image[i].original) === false || Utils.isAbsoluteUri(product.image[i].large) === false || Utils.isAbsoluteUri(product.image[i].medium) === false || Utils.isAbsoluteUri(product.image[i].small) === false) {
-                    errors.images = 'Image resolutions must have valid URLs';
-                }
-                i++;
-            }
-        }
-    }
+    
+    // if (Utils.whatIs(product.images) !== 'undefined') {
+    //     if (!Utils.isArray(product.images)) {
+    //         errors.images = "Images must be an array";
+    //     } else if (product.images.length > 15) {
+    //         errors.images = "Products cannot have more than 15 images";
+    //     } else if (product.images.length && product.images.length <= 15) {
+    //         var i = 0;
+    //         while (i <= product.images.length || !errors.images) {
+    //             if (Utils.whatIs(product.image[i].original) === 'undefined' || Utils.whatIs(product.image[i].large) === 'undefined' || Utils.whatIs(product.image[i].medium) === 'undefined' || Utils.whatIs(product.image[i].small) === 'undefined') {
+    //                 // Check to see if resolutions are present
+    //                 errors.images = 'Missing image resolution.  Images must contain original, large, medium and small resolutions';
+    //             } else if (Utils.whatIs(product.image[i].original) !== 'string' || Utils.whatIs(product.image[i].large) !== 'string' || Utils.whatIs(product.image[i].medium) !== 'string' || Utils.whatIs(product.image[i].small) !== 'string') {
+    //                 // Check to see if resolutions are all strings
+    //                 errors.images = 'Image resolutions must all be strings';
+    //             } else if (Utils.isAbsoluteUri(product.image[i].original) === false || Utils.isAbsoluteUri(product.image[i].large) === false || Utils.isAbsoluteUri(product.image[i].medium) === false || Utils.isAbsoluteUri(product.image[i].small) === false) {
+    //                 errors.images = 'Image resolutions must have valid URLs';
+    //             }
+    //             i++;
+    //         }
+    //     }
+    // }
 
     /**
      * in_stock
@@ -261,9 +271,9 @@ exports.validate = function(product, callback) {
     if (Utils.whatIs(product.shipping_prices) !== 'undefined') {
         if (!Utils.isArray(product.shipping_prices)) {
             errors.shipping_prices = 'Shipping prices must be an array of objects';
-        } else if (product.shipping_prices.length >= 60) {
+        } else if (product.shipping_prices.length > 60) {
             errors.shipping_prices = 'Only 60 Shipping Prices are allowed';
-        } else {
+        } else if (product.shipping_prices.length && product.shipping_prices.length <= 60) {
             var i = 0;
             while (i <= product.shipping_prices.length || !errors.shipping_prices) {
                 if (Utils.whatIs(product.shipping_prices[i].place) === 'undefined') {
@@ -312,7 +322,7 @@ exports.validate = function(product, callback) {
             errors.tags = 'Tags must be an array';
         } else if (product.tags.length > 6) {
             errors.tags = 'Only 6 tags are allowed';
-        } else {
+        } else if (product.tags.length && product.tags.length <= 6) {
             var i = 0;
             while (i <= product.tags.length || !errors.tags) {
                 if (!Utils.isString(product.tags[i])) {
@@ -339,64 +349,69 @@ exports.validate = function(product, callback) {
     }
 
     /**
-     * variations
-     * NOTE:  SERVANT has separate API routes for controling product variations and does not use the following code
+     *
+     * 
+     *  variations
+     * 
+     *  NOTE:  SERVANT has separate API routes for handling product variations and does not use the following code
+     *
+     * 
      */
-    if (Utils.whatIs(product.variations) !== 'undefined') {
-        if (!Utils.isArray(product.variations)) {
-            errors.variations = 'Variations must be an array of objects';
-        } else if (product.variations.length >= 15) {
-            errors.variations = 'Only 15 Variations are allowed';
-        } else {
-            var i = 0;
-            while (i <= product.variations.length || !errors.variations) {
-                if (Utils.whatIs(product.variations[i].variation) === 'undefined') {
-                    // Check to see if variations is present
-                    errors.variations = 'A variation is missing a variation property';
-                } else if (!Utils.inString(product.variations[i].variation)) {
-                    // Check to see if places are all strings
-                    errors.variations = 'Variations must be strings';
-                } else if (Utils.whatIs(product.variations[i].in_stock) === 'undefined') {
-                    // Check to see if variation in_stock property is present
-                    errors.variations = 'A variation must have an in_stock boolean property';
-                } else if (!Utils.inBoolean(product.variations[i].in_stock)) {
-                    // Check to see if in_stock is boolean
-                    errors.variations = 'in_stock properties must be booleans';
-                } else if (Utils.whatIs(product.variations[i].images) !== 'undefined') {
-                    // Check to see if variation has images, then validate those
-                    if (!Utils.isArray(product.variations[i].images)) {
-                        errors.variations = "Variation images must be in an array";
-                    } else if (product.variations[i].images.length > 2) {
-                        errors.variations = "Variations cannot have more than 2 images";
-                    } else {
-                        var vi = 0;
-                        while (vi <= product.variations[i].images.length || !errors.variations) {
-                            if (Utils.whatIs(product.variations[i].images.original) === 'undefined' || Utils.whatIs(product.variations[i].images.large) === 'undefined' || Utils.whatIs(product.variations[i].images.medium) === 'undefined' || Utils.whatIs(product.variations[i].images.small) === 'undefined') {
-                                // Check to see if resolutions are present
-                                errors.variations = 'Variation images are missing image resolutions.  Variation images must contain original, large, medium and small resolutions';
-                            } else if (Utils.whatIs(product.variations[i].images.original) !== 'string' || Utils.whatIs(product.variations[i].images.large) !== 'string' || Utils.whatIs(product.variations[i].images.medium) !== 'string' || Utils.whatIs(product.variations[i].images.small) !== 'string') {
-                                // Check to see if resolutions are all strings
-                                errors.variations = 'Variation image resolutions must all be strings';
-                            } else if (Utils.isAbsoluteUri(product.variations[i].images.original) === false || Utils.isAbsoluteUri(product.variations[i].images.large) === false || Utils.isAbsoluteUri(product.variations[i].images.medium) === false || Utils.isAbsoluteUri(product.variations[i].images.small) === false) {
-                                // Check to see if resolutions are all valid uris
-                                errors.variations = 'Variation image resolutions must have valid URLs';
-                            }
-                            vi++;
-                        }
-                    }
-                }
-                i++;
-            }
-            // Sanitize - Strip out duplicates
-            product.variations = Utils.uniq(product.variations);
-        }
-    }
+    // if (Utils.whatIs(product.variations) !== 'undefined') {
+    //     if (!Utils.isArray(product.variations)) {
+    //         errors.variations = 'Variations must be an array of objects';
+    //     } else if (product.variations.length > 15) {
+    //         errors.variations = 'Only 15 Variations are allowed';
+    //     } else if (product.variations.length & product.variations.length <= 15) {
+    //         var i = 0;
+    //         while (i <= product.variations.length || !errors.variations) {
+    //             if (Utils.whatIs(product.variations[i].variation) === 'undefined') {
+    //                 // Check to see if variations is present
+    //                 errors.variations = 'A variation is missing a variation property';
+    //             } else if (!Utils.inString(product.variations[i].variation)) {
+    //                 // Check to see if places are all strings
+    //                 errors.variations = 'Variations must be strings';
+    //             } else if (Utils.whatIs(product.variations[i].in_stock) === 'undefined') {
+    //                 // Check to see if variation in_stock property is present
+    //                 errors.variations = 'A variation must have an in_stock boolean property';
+    //             } else if (!Utils.inBoolean(product.variations[i].in_stock)) {
+    //                 // Check to see if in_stock is boolean
+    //                 errors.variations = 'in_stock properties must be booleans';
+    //             } else if (Utils.whatIs(product.variations[i].images) !== 'undefined') {
+    //                 // Check to see if variation has images, then validate those
+    //                 if (!Utils.isArray(product.variations[i].images)) {
+    //                     errors.variations = "Variation images must be in an array";
+    //                 } else if (product.variations[i].images.length > 2) {
+    //                     errors.variations = "Variations cannot have more than 2 images";
+    //                 } else {
+    //                     var vi = 0;
+    //                     while (vi <= product.variations[i].images.length || !errors.variations) {
+    //                         if (Utils.whatIs(product.variations[i].images.original) === 'undefined' || Utils.whatIs(product.variations[i].images.large) === 'undefined' || Utils.whatIs(product.variations[i].images.medium) === 'undefined' || Utils.whatIs(product.variations[i].images.small) === 'undefined') {
+    //                             // Check to see if resolutions are present
+    //                             errors.variations = 'Variation images are missing image resolutions.  Variation images must contain original, large, medium and small resolutions';
+    //                         } else if (Utils.whatIs(product.variations[i].images.original) !== 'string' || Utils.whatIs(product.variations[i].images.large) !== 'string' || Utils.whatIs(product.variations[i].images.medium) !== 'string' || Utils.whatIs(product.variations[i].images.small) !== 'string') {
+    //                             // Check to see if resolutions are all strings
+    //                             errors.variations = 'Variation image resolutions must all be strings';
+    //                         } else if (Utils.isAbsoluteUri(product.variations[i].images.original) === false || Utils.isAbsoluteUri(product.variations[i].images.large) === false || Utils.isAbsoluteUri(product.variations[i].images.medium) === false || Utils.isAbsoluteUri(product.variations[i].images.small) === false) {
+    //                             // Check to see if resolutions are all valid uris
+    //                             errors.variations = 'Variation image resolutions must have valid URLs';
+    //                         }
+    //                         vi++;
+    //                     }
+    //                 }
+    //             }
+    //             i++;
+    //         }
+    //         // Sanitize - Strip out duplicates
+    //         product.variations = Utils.uniq(product.variations);
+    //     }
+    // }
 
     /**
      * Callbacks
      */
 
-    if (Object.keys(errors) === 0) {
+    if (Object.keys(errors).length === 0) {
         return callback(null, product);
     } else {
         return callback(errors, null);

@@ -9,7 +9,7 @@ var Utils = {
         return this.isNumber(what) && what % 1 === 0;
     },
     isPositiveInteger: function(what) {
-        return what > 0;
+        return what > -1;
     },
     isNumber: function(what) {
         return typeof what === 'number' && Number.isFinite(what);
