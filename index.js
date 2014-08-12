@@ -2,15 +2,15 @@
  *  Data Archetypes – JSON standards for common types of data
  */
 
-var productValidator = require('.archetypes/product/product_archetype_validator');
-var productInstance = require('.archetypes/product/product_archetype_instance');
+var productValidator = require('./archetypes/product/product_archetype_validator');
+var productInstance = require('./archetypes/product/product_archetype_instance');
 
 // Constructor
 function DataArchetypes() {
 	// Add Schemas
 	this.schemas = {};
-	this.schemas.product = require('./product/product_archetype_schema');
-	this.schemas.receipt = require('./receipt/receipt_archetype_schema');
+	this.schemas.product = require('./archetypes/product/product_archetype_schema');
+	this.schemas.receipt = require('./archetypes/receipt/receipt_archetype_schema');
 };
 
 // Add Methods
