@@ -9,7 +9,7 @@ To achieve this, we need standard formats for data.  If data does not change sha
 
 ##Overview
 
-**STATUS: This is currently a work in progress.  We are waiting to recieve feedback on these before launching version 1 and Servant**
+***STATUS: This is currently a work in progress.  We are waiting to recieve feedback on these before launching version 1 and Servant***
 
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format and can be found in the `archetypes` folder.  Data Archetypes focus on are meant to be lean and contain only the essential properties/attributes that define and differentiate types of data.  The challenge is to agree on what those properties/attributes are...
 
