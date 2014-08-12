@@ -5,6 +5,8 @@
 >**Data should be able to flow fast and freely between multiple applications...**  
 >To achieve this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing productivity of their data.
 
+**This Project Is A Work In Progress**
+
 Given the popularity of JSON, each Data Archetype has been modeled in [JSON Schema](http://json-schema.org "http://json-schema.org") format.  Data Archetypes focus on containing only the essential properties/attributes that define and differentiate types of data.
 
 Feel free to contribute to the existing Data Archetypes or create your own!
