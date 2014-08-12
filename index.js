@@ -12,6 +12,7 @@ function DataArchetypes() {
 	this.schemas.receipt = require('./receipt/receipt_archetype_schema');
 };
 
+// Add Methods
 DataArchetypes.prototype.validateProduct = function(product, callback) {
 	productValidator.validate(product, callback, function(errors, product) {
 		callback(errors, product);

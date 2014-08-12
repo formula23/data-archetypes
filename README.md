@@ -19,6 +19,36 @@ This project was started for [Servant - The Content Management Ecosystem](http:/
 The benefits of this strategy are a big deal. Check out Servant if you get a chance.  Servant also splits the hosting revenue of its users with every application that integrates with Servant.
 
 ---
+##Getting Started
+Install the DataArchetypes...
+
+    npm install data-archetypes
+    
+Require the module and instantiate.
+
+    var DataArchetypes = require('../index');
+	var DATs = new DataArchetypes();
+	
+Validate an instance of a DataArchetype
+
+    // Create an instance of a product
+    var instance = {
+		title: Product1,
+		price: 1999,
+		seller: 'The Store'
+	};
+	
+    // Validate that instance
+	DATs.validateProduct(instance, function(errors, product) {
+		if (errors) {
+		    console.log(errors)
+		} else {
+		    console.log(product)
+		}
+	});
+
+##Contributing
+Anyone who has a Data Archetype in mind, or wants to add to existing Data Archetypes is free to contribute.  Just fork this project, create a branch, and then submit a pull request to contribute.  More on how to contribute [here](https://guides.github.com/activities/contributing-to-open-source/).
 
 ##F.A.Q.
 ###As a Developer, how can I store extra data in each Archetype (e.g. SEO data)?
