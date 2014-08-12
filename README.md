@@ -48,7 +48,7 @@ More on how to contribute [here](https://guides.github.com/activities/contributi
 ###As a Developer, Data Archetypes are not robust enough for my application and I need to store more data than Data Archetypes can hold (e.g. SEO data).  What should I do?
 This is the most popular question and rightfully so.  You want to build a awesome application, but using Data Archetypes feels limiting...
 
-First off, is the extra data you need only unique to your specific project?  **95% of the time, developers want to add extra data/properties to the Archetypes which are only relevant to their particular applications**.  However, the Data Archetypes must be kept lean and comprehensible for the sake of speed and ease-of-use in all scenarios.  For instance, what use would a mobile application have for SEO data if SEO data is stored in each Archetype?
+First off, is the extra data you need specific to your application?  **95% of the time, developers want to add extra data/properties to the Archetypes which are only relevant to their particular applications**.  However, the Data Archetypes must be kept lean and comprehensible for the sake of speed and ease-of-use in all scenarios.  For instance, what use would a mobile application have for SEO data if SEO data is stored in each Archetype?
 
 There are infinite use cases for each Data Archetype, and storing custom data for each use case would result in infinite bloat.
 

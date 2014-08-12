@@ -1,13 +1,24 @@
 {
   "name": "data-archetypes",
   "author": "Austen Collins",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "JSON Standards For Common Types Of Data",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/servant-cmes/data-archetypes.git"
   },
+  "keywords": [
+    "json",
+    "schema",
+    "data",
+    "standards",
+    "archetypes",
+    "products",
+    "images",
+    "events",
+    "servant"
+  ],
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/servant-cmes/data-archetypes/issues"

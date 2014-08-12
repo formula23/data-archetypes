@@ -155,7 +155,7 @@
 			"description": "The Universal Product Code of the product",
 			"maxLength": 50
 		},
-		"shipping_prices:": {
+		"shipping_prices": {
 			"type": "array",
 			"description": "An array listing countries or states the product ships to and the corresponding price",
 			"uniqueItems": true,

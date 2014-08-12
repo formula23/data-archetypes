@@ -171,7 +171,7 @@ exports.validate = function(product, callback) {
             errors.images = "Products cannot have more than 15 images";
         } else if (product.images.length && product.images.length <= 15) {
             var i = 0;
-            while (i <= product.images.length || !errors.images) {
+            while (i < product.images.length && !errors.images) {
                 if (Utils.whatIs(product.image[i].original) === 'undefined' || Utils.whatIs(product.image[i].large) === 'undefined' || Utils.whatIs(product.image[i].medium) === 'undefined' || Utils.whatIs(product.image[i].small) === 'undefined') {
                     // Check to see if resolutions are present
                     errors.images = 'Missing image resolution.  Images must contain original, large, medium and small resolutions';
@@ -275,11 +275,11 @@ exports.validate = function(product, callback) {
             errors.shipping_prices = 'Only 60 Shipping Prices are allowed';
         } else if (product.shipping_prices.length && product.shipping_prices.length <= 60) {
             var i = 0;
-            while (i <= product.shipping_prices.length || !errors.shipping_prices) {
+            while (i < product.shipping_prices.length && !errors.shipping_prices) {
                 if (Utils.whatIs(product.shipping_prices[i].place) === 'undefined') {
                     // Check to see if place is present
                     errors.shipping_prices = 'A shipping price is missing a place';
-                } else if (!Utils.inString(product.shipping_prices[i].place)) {
+                } else if (!Utils.isString(product.shipping_prices[i].place)) {
                     // Check to see if places are all strings
                     errors.shipping_prices = 'Shipping price places must be strings';
                 } else if (ProductArchetypeSchema.properties.shipping_prices.items.properties.place.enum.indexOf(product.shipping_prices[i].place.toLowerCase()) < 0) {
@@ -288,7 +288,7 @@ exports.validate = function(product, callback) {
                 } else if (Utils.whatIs(product.shipping_prices[i].price) === 'undefined') {
                     // Check to see if price is present
                     errors.shipping_prices = 'A shipping price is missing a price';
-                } else if (!Utils.inInteger(product.shipping_prices[i].price)) {
+                } else if (!Utils.isInteger(product.shipping_prices[i].price)) {
                     // Check to see if price is integer
                     errors.shipping_prices = 'Shipping prices must be in cents as integers (whole numbers)';
                 } else {
@@ -324,7 +324,7 @@ exports.validate = function(product, callback) {
             errors.tags = 'Only 6 tags are allowed';
         } else if (product.tags.length && product.tags.length <= 6) {
             var i = 0;
-            while (i <= product.tags.length || !errors.tags) {
+            while (i < product.tags.length && !errors.tags) {
                 if (!Utils.isString(product.tags[i])) {
                     errors.tags = 'Tags must be strings';
                 } else {
@@ -364,17 +364,17 @@ exports.validate = function(product, callback) {
             errors.variations = 'Only 15 Variations are allowed';
         } else if (product.variations.length & product.variations.length <= 15) {
             var i = 0;
-            while (i <= product.variations.length || !errors.variations) {
+            while (i < product.variations.length && !errors.variations) {
                 if (Utils.whatIs(product.variations[i].variation) === 'undefined') {
                     // Check to see if variations is present
                     errors.variations = 'A variation is missing a variation property';
-                } else if (!Utils.inString(product.variations[i].variation)) {
+                } else if (!Utils.isString(product.variations[i].variation)) {
                     // Check to see if places are all strings
                     errors.variations = 'Variations must be strings';
                 } else if (Utils.whatIs(product.variations[i].in_stock) === 'undefined') {
                     // Check to see if variation in_stock property is present
                     errors.variations = 'A variation must have an in_stock boolean property';
-                } else if (!Utils.inBoolean(product.variations[i].in_stock)) {
+                } else if (!Utils.isBoolean(product.variations[i].in_stock)) {
                     // Check to see if in_stock is boolean
                     errors.variations = 'in_stock properties must be booleans';
                 } else if (Utils.whatIs(product.variations[i].images) !== 'undefined') {
@@ -385,7 +385,7 @@ exports.validate = function(product, callback) {
                         errors.variations = "Variations cannot have more than 2 images";
                     } else {
                         var vi = 0;
-                        while (vi <= product.variations[i].images.length || !errors.variations) {
+                        while (vi < product.variations[i].images.length && !errors.variations) {
                             if (Utils.whatIs(product.variations[i].images.original) === 'undefined' || Utils.whatIs(product.variations[i].images.large) === 'undefined' || Utils.whatIs(product.variations[i].images.medium) === 'undefined' || Utils.whatIs(product.variations[i].images.small) === 'undefined') {
                                 // Check to see if resolutions are present
                                 errors.variations = 'Variation images are missing image resolutions.  Variation images must contain original, large, medium and small resolutions';
