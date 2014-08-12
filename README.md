@@ -1,6 +1,6 @@
 #Data Archetypes
 
-###Open-source JSON standards for common types of data
+###Open-source JSON standards for common types of data.
 
 ##Mission
   
@@ -8,19 +8,19 @@
 The web is polluted with incompatible data objects.  To fix this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing distribution and productivity of their data.
 
 ##Benefits
-**Users Can Import Their Data Into Your Application Instantly**
+#####**Users Can Import Their Data Into Your Application Instantly**
 It's hard enough to get users.  Especially when they have to manually enter the same ol' content (Products, Blog Posts, etc..) within your app.  Using Data Archetypes they can import their data instantly, and get on with using what you've built!  
   
-**Write Less Code**
+#####**Write Less Code**
 C'mon, are you really going to model yet another *Product* or *Blog Post* data object?  Together, we can build perfect representations of those, that should serve most use-cases.
 
-**Don't Hold Users' Data Hostage**
+#####**Don't Hold Users' Data Hostage**
 If your business plan is to hold users' data hostage so they can't leave, then that is just plain awful.  Instead, build an application that creates value out of their data, and let them know that the data they create within your application will have use elsewhere too.
 
-**Data Liquidity**
+#####**Data Liquidity**
 Imagine an internet where we can instantly port our pre-existing data into new applications.  Or exit an application, knowing the data we created while using it will be usable elsewhere.
 
-**A New Data Economy**
+#####**A New Data Economy**
 Applications supporting Data Archetypes will participate in a shared growth scenario.  Anywhere a user adds to their collection of Data Archetypes indirectly adds to the useage they could get out of your own application.   Together, we can build a new data economy using these standard formats, and applications supporting them will rise to the top. 
 
 
