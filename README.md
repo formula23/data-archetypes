@@ -5,7 +5,7 @@
 ##Mission
   
 **Data should be able to flow fast and freely between multiple applications...**  
-To achieve this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing distribution and productivity of their data.
+The web is polluted with incompatible data objects.  To achieve this, we need standard formats for data.  If data does not change shape, it's easier for developers to build applications that work with it, and it allows users to import pre-existing data into those applications, increasing distribution and productivity of their data.
 
 ##Overview
 

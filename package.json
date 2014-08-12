@@ -1,7 +1,7 @@
 {
   "name": "data-archetypes",
   "author": "Austen Collins",
-  "version": "0.0.4",
+  "version": "0.0.0",
   "description": "JSON Standards For Common Types Of Data",
   "main": "index.js",
   "repository": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/servant-cmes/data-archetypes/issues"
   },
   "scripts": {
-    "test": "node ./_tests/test.js | tap-spec"
+    "test": "node ./test/test.js | tap-spec"
   },
   "dependencies": {},
   "devDependencies": {
